@@ -1,12 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primera Página Web</title>
-</head>
-<body>
-    <h1>Este es mi primer sitio web</h1>
-    <img src="./images/html-5.512.png" alt="icono de HTML5" width="150px">
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Proyecto de E-commerce" />
+        <meta name="keywords" content="HTML, CSS, JavaScript, E-commerce" />
+        <meta name="author" content="Reinieri Ricardo" />
+        <title>Tienda Artemis</title>
+    </head>
+    <body>
+        <main>
+            <navbar>
+                <h1>Artemis</h1>
+                <p>
+                    Bienvenido a la tienda Artemis, tu tienda de moda en
+                    Santiago del Estero
+                </p>
+                <img
+                    src="/images/logo.png"
+                    alt="Logo de la tienda"
+                    class="logo-img"
+                />
+
+                <!-- Categorías -->
+                <ul class="nav-categories">
+                    <li><a href="carteras.html">Carteras</a></li>
+                    <li><a href="ropa.html">Ropa</a></li>
+                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="novedades.html">Novedades</a></li>
+                    <li><a href="ofertas.html">Ofertas</a></li>
+                </ul>
+
+                <!-- Buscador -->
+                <div class="search">
+                    <form action="buscar.html" method="get">
+                        <input
+                            type="text"
+                            name="q"
+                            placeholder="Buscar productos..."
+                        />
+                        <button type="submit">🔍</button>
+                    </form>
+                </div>
+
+                <!-- Usuario y carrito -->
+                <div class="user-cart">
+                    <a href="login.html">Cuenta</a>
+                    <a href="wishlist.html">♥</a>
+                    <a href="carrito.html">🛒 (0)</a>
+                </div>
+            </navbar>
+        </main>
+    </body>
 </html>

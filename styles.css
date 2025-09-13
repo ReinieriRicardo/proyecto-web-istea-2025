@@ -1,3 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 body {
     background-color: #dbc6e2;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: #583484;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    height: 300px;
+    width: 100%;
 }

@@ -6,16 +6,13 @@
         <meta name="description" content="Proyecto de E-commerce" />
         <meta name="keywords" content="HTML, CSS, JavaScript, E-commerce" />
         <meta name="author" content="Reinieri Ricardo" />
+        <link rel="stylesheet" href="/styles.css" />
         <title>Tienda Artemis</title>
     </head>
     <body>
         <main>
-            <navbar>
-                <h1>Artemis</h1>
-                <p>
-                    Bienvenido a la tienda Artemis, tu tienda de moda en
-                    Santiago del Estero
-                </p>
+            <!-- Barra de navegación -->
+            <nav>
                 <img
                     src="/images/logo.png"
                     alt="Logo de la tienda"
@@ -24,11 +21,11 @@
 
                 <!-- Categorías -->
                 <ul class="nav-categories">
-                    <li><a href="carteras.html">Carteras</a></li>
-                    <li><a href="ropa.html">Ropa</a></li>
-                    <li><a href="accesorios.html">Accesorios</a></li>
-                    <li><a href="novedades.html">Novedades</a></li>
-                    <li><a href="ofertas.html">Ofertas</a></li>
+                    <li><a href="#">Carteras</a></li>
+                    <li><a href="#">Ropa</a></li>
+                    <li><a href="#"">Accesorios</a></li>
+                    <li><a href="#">Novedades</a></li>
+                    <li><a href="#">Ofertas</a></li>
                 </ul>
 
                 <!-- Buscador -->
@@ -39,17 +36,17 @@
                             name="q"
                             placeholder="Buscar productos..."
                         />
-                        <button type="submit">🔍</button>
+                        <button type="submit"><img src="/images/icons/search.png" alt="icono de lupa"></button>
                     </form>
                 </div>
 
                 <!-- Usuario y carrito -->
                 <div class="user-cart">
-                    <a href="login.html">Cuenta</a>
-                    <a href="wishlist.html">♥</a>
-                    <a href="carrito.html">🛒 (0)</a>
+                    <a href="#">Cuenta</a>
+                    <a href="#"><img src="/images/icons/user.png" alt="icono de corazon"></a>
+                    <a href="#"><img src="/images/icons/shopping-bag.png" alt="icono de carrito"> (0)</a>
                 </div>
-            </navbar>
+            </nav>
         </main>
     </body>
 </html>

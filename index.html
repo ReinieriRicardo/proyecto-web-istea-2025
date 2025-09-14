@@ -12,41 +12,35 @@
     <body>
         <main>
             <!-- Barra de navegación -->
-            <nav>
+            <header>
+                <div class="container">
                 <img
                     src="/images/logo.png"
                     alt="Logo de la tienda"
-                    class="logo-img"
+                    class="logo"
                 />
-
                 <!-- Categorías -->
+                <nav>
                 <ul class="nav-categories">
                     <li><a href="#">Carteras</a></li>
                     <li><a href="#">Ropa</a></li>
                     <li><a href="#"">Accesorios</a></li>
-                    <li><a href="#">Novedades</a></li>
-                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Cuenta<img src="/images/icons/user.png" alt="icono de corazon"></a></li>
+                    <li><a href="#">Carrito<img src="/images/icons/shopping-bag.png" alt="icono de carrito"> (0)</a></li>
                 </ul>
-
-                <!-- Buscador -->
-                <div class="search">
-                    <form action="buscar.html" method="get">
-                        <input
-                            type="text"
-                            name="q"
-                            placeholder="Buscar productos..."
-                        />
-                        <button type="submit"><img src="/images/icons/search.png" alt="icono de lupa"></button>
-                    </form>
+                </nav>
                 </div>
 
-                <!-- Usuario y carrito -->
-                <div class="user-cart">
-                    <a href="#">Cuenta</a>
-                    <a href="#"><img src="/images/icons/user.png" alt="icono de corazon"></a>
-                    <a href="#"><img src="/images/icons/shopping-bag.png" alt="icono de carrito"> (0)</a>
+                <div class="row">
+                    <div class="col-2">
+                        <h1>Bienvenido a Tienda Artemis</h1>
+                        <p>Tu tienda de moda femenina en Santiago del Estero</p>
+                    </div>
+                        <div class="col-2">
+                        <img src="/images/set-woman-luxury-handbags-purses-illustration.png" alt="ilustracion de bolsos">
+                    </div>
                 </div>
-            </nav>
+            </header>
         </main>
     </body>
 </html>

@@ -1,46 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Proyecto de E-commerce" />
-        <meta name="keywords" content="HTML, CSS, JavaScript, E-commerce" />
-        <meta name="author" content="Reinieri Ricardo" />
-        <link rel="stylesheet" href="/styles.css" />
-        <title>Tienda Artemis</title>
-    </head>
-    <body>
-        <main>
-            <!-- Barra de navegación -->
-            <header>
-                <div class="container">
-                <img
-                    src="/images/logo.png"
-                    alt="Logo de la tienda"
-                    class="logo"
-                />
-                <!-- Categorías -->
-                <nav>
-                <ul class="nav-categories">
-                    <li><a href="#">Carteras</a></li>
-                    <li><a href="#">Ropa</a></li>
-                    <li><a href="#"">Accesorios</a></li>
-                    <li><a href="#">Cuenta<img src="/images/icons/user.png" alt="icono de corazon"></a></li>
-                    <li><a href="#">Carrito<img src="/images/icons/shopping-bag.png" alt="icono de carrito"> (0)</a></li>
-                </ul>
-                </nav>
-                </div>
+<html lang="es">
 
-                <div class="row">
-                    <div class="col-2">
-                        <h1>Bienvenido a Tienda Artemis</h1>
-                        <p>Tu tienda de moda femenina en Santiago del Estero</p>
-                    </div>
-                        <div class="col-2">
-                        <img src="/images/set-woman-luxury-handbags-purses-illustration.png" alt="ilustracion de bolsos">
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Artemis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+
+        <img src="/images/logo.png" alt="Logo Tienda Artemis" class="logo">
+
+
+        <!-- Buscador todavia sin funcion-->
+        <form class="search-bar">
+            <input type="text" placeholder="Buscar productos" aria-label="Buscar">
+            <button type="submit">🔍</button>
+        </form>
+
+        <!-- Menú hamburguesa con checkbox -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+
+        <!-- Navegación -->
+        <nav>
+            <ul class="nav-categories">
+                <li><a href="#">Carteras</a></li>
+                <li><a href="#">Ropa</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="#">Cuenta <img src="/images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="#">Carrito <img src="/images/icons/shopping-bag.png" alt="icono carrito"> (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+        <section class="hero">
+            <div class="row">
+                <div class="col-2 hero-text">
+                    <h1>Bienvenido a Tienda Artemis</h1>
+                    <p>Tu tienda de moda femenina en Santiago del Estero. Explora carteras, ropa y accesorios
+                        seleccionados.</p>
                 </div>
-            </header>
-        </main>
-    </body>
+                <div class="col-2 hero-image">
+                    <img src="/images/woman-hands-with-mobile-phone-stylish-girl-beige-coat-chatting-modern-city.jpg"
+                        alt="Mujer con bolso - Tienda Artemis">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
 </html>

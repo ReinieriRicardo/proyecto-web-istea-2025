@@ -1,20 +1,214 @@
+:root {
+    --color-principal: #dbc6e2;
+    --color-secundario: #583484;
+    --color-resalte: #e29c34;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
-}
-
-body {
-    background-color: #dbc6e2;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0;
-    background-color: #583484;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
-    height: 300px;
+}
+body {
+    font-family: 'DM Serif Display', serif;
+    background: var(--color-principal);
+    color: #222;
+}
+
+header {
     width: 100%;
+    background: var(--color-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.logo {
+    height: 60px;
+    display: block;
+}
+
+/* Buscador */
+.search-bar {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    margin: 0 12px;
+}
+.search-bar input {
+    flex: 1;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 1rem;
+}
+.search-bar button {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background: var(--color-resalte);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* NAV escritorio */
+nav {
+    display: block;
+}
+
+.nav-categories {
+    display: flex;
+    gap: 1.6rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-categories li a {
+    text-decoration: none;
+    color: var(--color-principal);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+}
+.nav-categories li a:hover {
+    color: var(--color-resalte);
+    transform: translateY(-2px);
+}
+.nav-categories li a img {
+    width: 18px;
+    height: auto;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-principal);
+    user-select: none;
+}
+
+/* Seccion HERO */
+.hero {
+    padding: 56px 5%;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.col-2 {
+    flex: 1 1 45%;
+    min-width: 260px;
+}
+
+.hero-text h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: var(--color-secundario);
+}
+
+.hero-text p {
+    font-size: 18px;
+    color: var(--color-secundario);
+}
+
+/* Imagen hero */
+.hero-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center right;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+
+/*responsive*/
+@media (max-width: 768px) {
+    .search-bar {
+        display: none;
+    }
+    .menu-icon {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--color-secundario);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    #menu-toggle:checked ~ nav {
+        max-height: 600px;
+    }
+
+    .nav-categories {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 6px 0;
+    }
+    .nav-categories li a {
+        display: block;
+        width: 100%;
+        padding: 14px 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .nav-categories li a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--color-principal);
+    }
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .hero-text h1 {
+        font-size: 30px;
+    }
+    .hero-text p {
+        font-size: 16px;
+    }
+    .hero-image img {
+        height: auto;
+        max-width: 92%;
+    }
+}
+
+@media (max-width: 420px) {
+    header {
+        height: 68px;
+        padding: 0 12px;
+    }
+    .logo {
+        height: 52px;
+    }
+    .menu-icon {
+        font-size: 1.6rem;
+    }
+    .hero-text h1 {
+        font-size: 26px;
+    }
+    .hero-text p {
+        font-size: 15px;
+    }
 }

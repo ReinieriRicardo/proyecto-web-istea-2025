@@ -34,6 +34,10 @@ header {
     display: block;
 }
 
+header > h1 {
+    color: var(--color-principal);
+}
+
 /* Buscador */
 .search-bar {
     flex: 1;
@@ -102,6 +106,11 @@ nav {
 /* Seccion HERO */
 .hero {
     padding: 56px 5%;
+    background: linear-gradient(
+        to bottom,
+        var(--color-principal) 80%,
+        antiquewhite
+    );
 }
 
 .row {
@@ -116,7 +125,7 @@ nav {
     min-width: 260px;
 }
 
-.hero-text h1 {
+.hero-text h2 {
     font-size: 40px;
     margin-bottom: 12px;
     color: var(--color-secundario);
@@ -136,6 +145,56 @@ nav {
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     display: block;
+}
+
+/* tarjetas de productos */
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    padding: 25px 5%;
+}
+
+.product-card {
+    width: fit-content;
+    max-width: 250px;
+    box-shadow: 3px 3px 7px var(--color-secundario);
+    flex: 0 0 calc(20% - 10px); /*el porcentaje de cuantos quiero en pantalla menos el gap*/
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.product-card img {
+    max-width: 100%;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    margin: 20px 0 10px 0;
+    font-size: 23px;
+}
+
+.envio {
+    color: green;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.product-description {
+    font-size: 13px;
+    font-weight: 10;
+    color: rgb(67, 67, 65);
+    font-family: Tahoma, sans-serif;
 }
 
 /*responsive*/
@@ -182,7 +241,7 @@ nav {
         text-align: center;
         gap: 20px;
     }
-    .hero-text h1 {
+    .hero-text h2 {
         font-size: 30px;
     }
     .hero-text p {
@@ -191,6 +250,10 @@ nav {
     .hero-image img {
         height: auto;
         max-width: 92%;
+    }
+
+    .product-card {
+        flex: 0 0 calc(33% - 10px);
     }
 }
 
@@ -210,5 +273,8 @@ nav {
     }
     .hero-text p {
         font-size: 15px;
+    }
+    .product-card {
+        flex: 0 0 calc(50% - 7.5px);
     }
 }

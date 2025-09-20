@@ -149,10 +149,10 @@ nav {
 
 /* tarjetas de productos */
 .product-container {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    flex-grow: 1;
     background-color: antiquewhite;
     padding: 25px 5%;
 }
@@ -165,6 +165,7 @@ nav {
     box-sizing: border-box;
     padding: 20px;
     overflow: hidden;
+    margin: 10px 0;
 }
 
 .product-card img {
@@ -252,6 +253,10 @@ nav {
         max-width: 92%;
     }
 
+    .product-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
     .product-card {
         flex: 0 0 calc(33% - 10px);
     }
@@ -273,6 +278,9 @@ nav {
     }
     .hero-text p {
         font-size: 15px;
+
+    .product-container {
+        grid-template-columns: 1fr 1fr;
     }
     .product-card {
         flex: 0 0 calc(50% - 7.5px);

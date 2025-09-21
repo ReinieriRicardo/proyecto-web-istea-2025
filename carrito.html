@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Tienda Artemis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/logo.png">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <a href="/index.html"><img src="/images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
+        <a href="/index.html">
+            <h1>Artemis</h1>
+        </a>
+        <form class="search-bar">
+            <input type="text" placeholder="Buscar productos" aria-label="Buscar">
+            <button type="submit">🔍</button>
+        </form>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav>
+            <ul class="nav-categories">
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="carrito.html">Carrito <img src="/images/icons/shopping-bag.png" alt="carrito">(2)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carrito -->
+    <main class="cart-page">
+        <!-- Encabezado -->
+        <div class="cart-header">
+            <h2>Carrito (2 productos)</h2>
+            <a href="productos.html" class="seguir-comprando">Seguir comprando</a>
+        </div>
+
+        <div class="cart-layout">
+            <!-- Lista de productos -->
+            <section class="cart-items">
+                <div class="cart-item">
+                    <img src="/images/Products/pink-handbags.jpg" alt="Producto" class="cart-thumb">
+                    <div class="cart-info">
+                        <h3>Cartera de Cuero Elegante</h3>
+                        <p class="unit-price">$151.499</p>
+                        <div class="quantity">
+                            <button>-</button>
+                            <input type="number" value="1" min="1">
+                            <button>+</button>
+                        </div>
+                        <p class="subtotal">Subtotal: $151.499</p>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <img src="/images/Products/pink-handbags.jpg" alt="Producto" class="cart-thumb">
+                    <div class="cart-info">
+                        <h3>Cartera Casual de Tela</h3>
+                        <p class="unit-price">$120.000</p>
+                        <div class="quantity">
+                            <button>-</button>
+                            <input type="number" value="1" min="1">
+                            <button>+</button>
+                        </div>
+                        <p class="subtotal">Subtotal: $120.000</p>
+                        <button class="btn btn-danger">Eliminar</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resumen -->
+            <aside class="cart-summary">
+                <h3>Resumen de compra</h3>
+                <p>Subtotal: <strong>$271.499</strong></p>
+                <p>Envío: <span style="color:green">Gratis</span></p>
+                <p>Total: <strong>$271.499</strong></p>
+                <button class="btn btn-primary">Finalizar compra</button>
+
+                <div class="cart-benefits">
+                    <p>✅ Compra protegida: recibí el producto que esperabas o te devolvemos tu dinero.</p>
+                    <p>💳 Pagá en cuotas sin interés con tarjeta de crédito.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+</body>
+
+</html>

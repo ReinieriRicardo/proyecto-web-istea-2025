@@ -4,6 +4,7 @@
     --color-letra-nav: #ffffff;
     --color-resalte: #e29c34;
     --color-fondo: #fff;
+    --color-cards: #e3e4ea;
 }
 
 * {
@@ -250,7 +251,7 @@ nav {
     display: flex;
     gap: 16px;
     padding: 16px;
-    background: #fff;
+    background: #e3e4ea;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     margin-bottom: 16px;

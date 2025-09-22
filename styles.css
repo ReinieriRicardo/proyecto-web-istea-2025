@@ -154,7 +154,7 @@ nav {
     background-color: var(--color-fondo);
 }
 .product-card {
-    background: #fff;
+    background: var(--color-cards);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -293,7 +293,7 @@ nav {
 }
 
 .cart-summary {
-    background: #fff;
+    background: var(--color-cards);
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -309,6 +309,110 @@ nav {
     margin-top: 20px;
     font-size: 14px;
     color: #444;
+}
+
+/* ===== PRODUCTO DETALLE ===== */
+.producto-page {
+    padding: 40px 5%;
+    background: #fdfdfd;
+}
+
+.producto-layout {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.producto-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.producto-imagen-principal {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.producto-miniaturas {
+    display: flex;
+    gap: 10px;
+}
+.producto-miniaturas img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.producto-miniaturas img:hover {
+    border-color: var(--color-secundario);
+}
+
+.producto-detalles h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+.producto-subtitulo {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+}
+.producto-precio {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-secundario);
+    margin-bottom: 8px;
+}
+.producto-envio {
+    color: green;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.producto-opciones,
+.producto-cantidad {
+    margin-bottom: 16px;
+}
+.producto-opciones label,
+.producto-cantidad label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+.producto-opciones select,
+.producto-cantidad input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100px;
+}
+
+.producto-beneficios {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #444;
+}
+.producto-beneficios p {
+    margin-bottom: 6px;
+}
+
+.producto-descripcion {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.producto-descripcion h3 {
+    margin-bottom: 12px;
+    color: var(--color-secundario);
+}
+.producto-descripcion ul {
+    margin-top: 12px;
+    padding-left: 20px;
+    list-style: disc;
 }
 
 /* responsive */

@@ -3,7 +3,7 @@
     --color-secundario: #583484;
     --color-letra-nav: #ffffff;
     --color-resalte: #e29c34;
-    --color-fondo: #fff;
+    --color-fondo: #fdf2f5;
     --color-cards: #e3e4ea;
 }
 
@@ -154,6 +154,9 @@ nav {
 }
 
 /* productos */
+.producto-page {
+    background: var(--color-fondo);
+}
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -232,7 +235,7 @@ nav {
 /* carrito */
 .cart-page {
     padding: 30px 5%;
-    background: #fdfdfd;
+    background: var(--color-fondo);
 }
 
 .cart-header {
@@ -420,6 +423,11 @@ nav {
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
+.producto-descripcion {
+    background-color: var(--color-cards);
+}
+
 .producto-descripcion h3 {
     margin-bottom: 12px;
     color: var(--color-secundario);

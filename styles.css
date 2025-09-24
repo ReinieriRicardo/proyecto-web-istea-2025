@@ -3,7 +3,7 @@
     --color-secundario: #583484;
     --color-letra-nav: #ffffff;
     --color-resalte: #e29c34;
-    --color-fondo: #fdf2f5;
+    --color-fondo: #f9ebef;
     --color-cards: #e3e4ea;
 }
 
@@ -154,9 +154,7 @@ nav {
 }
 
 /* productos */
-.producto-page {
-    background: var(--color-fondo);
-}
+
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -326,7 +324,7 @@ nav {
 /* estilo de la pagina productos*/
 .producto-page {
     padding: 40px 5%;
-    background: #fdfdfd;
+    background: var(--color-fondo);
 }
 
 .producto-layout {

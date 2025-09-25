@@ -33,12 +33,43 @@ header {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+header nav {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    flex: 1;
+}
+
+.brand h1 {
+    font-family: 'Send Flowers', cursive;
+    font-size: 3.5rem;
+    color: var(--color-principal);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+nav .search-bar {
+    max-width: 400px;
+    margin: 0 20px;
+}
+
 .logo {
     height: 60px;
     display: block;
 }
 
-header > a {
+header a {
     color: var(--color-principal);
     text-decoration: none;
 }
@@ -488,7 +519,9 @@ footer {
 /* responsive */
 @media (max-width: 768px) {
     .search-bar {
-        display: none;
+        display: flex;
+        margin: 10px;
+        max-width: 100%;
     }
     .menu-icon {
         display: block;
@@ -502,9 +535,17 @@ footer {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
     }
     #menu-toggle:checked ~ nav {
         max-height: 600px;
+    }
+
+    nav .search-bar {
+        order: -1;
+        margin: 12px;
     }
     .nav-categories {
         flex-direction: column;
@@ -536,6 +577,25 @@ footer {
     .footer-content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .search-bar {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    nav .search-bar input {
+        border-radius: 6px;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    nav .search-bar button {
+        border-radius: 6px;
+        width: 100%;
+        font-size: 0.9rem;
     }
 }
 

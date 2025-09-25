@@ -16,17 +16,20 @@
 <body>
     <!-- Header -->
     <header>
-        <a href="/index.html"><img src="/images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
-        <a href="/index.html">
-            <h1>Artemis</h1>
-        </a>
-        <form class="search-bar">
-            <input type="text" placeholder="Buscar productos" aria-label="Buscar">
-            <button type="submit">🔍</button>
-        </form>
+        <div class="brand">
+            <a href="/index.html"><img src="/images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
+            <a href="/index.html">
+                <h1>Artemis</h1>
+            </a>
+        </div>
+
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰</label>
         <nav>
+            <form class="search-bar">
+                <input type="text" placeholder="Buscar productos" aria-label="Buscar">
+                <button type="submit">🔍</button>
+            </form>
             <ul class="nav-categories">
                 <li><a href="#">Carteras</a></li>
                 <li><a href="#">Ropa</a></li>

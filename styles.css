@@ -74,13 +74,13 @@ header a {
     text-decoration: none;
 }
 
-header > a h1 {
+/*header > a h1 {
     font-family: 'Send Flowers', cursive;
     font-size: 3.1rem;
     display: flex;
     align-items: center;
     gap: 8px;
-}
+}*/
 
 /* buscador */
 .search-bar {
@@ -465,6 +465,73 @@ nav {
     margin-top: 12px;
     padding-left: 20px;
     list-style: disc;
+}
+
+/*estilos para el login*/
+
+.login-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-fondo);
+    padding: 40px 20px;
+}
+
+.login-form {
+    background: var(--color-cards);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h2 {
+    margin-bottom: 10px;
+    color: var(--color-secundario);
+    text-align: center;
+}
+
+.login-subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    font-weight: 600;
+    margin: 10px 0 6px;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.login-links,
+.login-register {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+.login-links a,
+.login-register a {
+    color: var(--color-resalte);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-links a:hover,
+.login-register a:hover {
+    text-decoration: underline;
 }
 
 /*footer*/

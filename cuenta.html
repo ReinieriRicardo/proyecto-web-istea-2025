@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión - Tienda Artemis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" <link
+        rel="shortcut icon" href="/images/logo.png">
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <a href="/index.html"><img src="/images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
+            <a href="/index.html">
+                <h1>Artemis</h1>
+            </a>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav>
+            <form class="search-bar">
+                <input type="text" placeholder="Buscar productos" aria-label="Buscar">
+                <button type="submit">🔍</button>
+            </form>
+            <ul class="nav-categories">
+                <li><a href="#">Carteras</a></li>
+                <li><a href="#">Ropa</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="cuenta.html">Cuenta <img src="/images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="carrito.html">Carrito <img src="/images/icons/shopping-bag.png" alt="icono carrito">
+                        (0)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="login-page">
+        <form class="login-form">
+            <h2>Iniciar sesión</h2>
+            <p class="login-subtitle">Accedé a tu cuenta de Tienda Artemis</p>
+
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="ejemplo@gmail.com" required>
+
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="********" required>
+
+            <button type="submit" class="btn btn-primary">Continuar</button>
+
+            <p class="login-links">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </p>
+            <p class="login-register">
+                ¿No tenés cuenta? <a href="#">Registrate</a>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tienda Artemis - Todos los derechos reservados</p>
+        </div>
+    </footer>
+</body>
+
+</html>

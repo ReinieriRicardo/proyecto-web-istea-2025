@@ -149,7 +149,7 @@ nav {
 .hero {
     position: relative;
     height: 70vh;
-    background: url('/images/woman-hands-with-mobile-phone-stylish-girl-beige-coat-chatting-modern-city.jpg')
+    background: url('images/woman-hands-with-mobile-phone-stylish-girl-beige-coat-chatting-modern-city.jpg')
         center/cover no-repeat;
     display: flex;
     align-items: center;

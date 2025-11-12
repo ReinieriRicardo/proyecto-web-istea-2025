@@ -1,15 +1,15 @@
 // ---------------- CONFIGURACIÓN DE AIRTABLE ----------------
-const AIRTABLE_TOKEN = 'patUTt5oh5qkTcbwr.718e5ccd7bf285285b6b0b11ddfda84a06c0f251da8bd82a9a41e22e2419982b';
-const AIRTABLE_BASE_ID = 'appQAusygx01OOuTl';
-const AIRTABLE_TABLE_NAME = 'Productos';
+const AIRTABLE_TOKEN = AIRTABLE_CONFIG.TOKEN;
+const AIRTABLE_BASE_ID = AIRTABLE_CONFIG.BASE_ID;
+const AIRTABLE_TABLE_NAME = AIRTABLE_CONFIG.TABLE_NAME;
 
 // URL base de la API
 const AIRTABLE_URL = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}?pageSize=100`;
 
-// Array para almacenar los productos
+// Array de los productos
 let misProductos = [];
 
-// ---------------- FUNCIONES DE UTILIDAD ----------------
+// ---------------- FUNCIONES----------------
 
 // Formatear precios
 function formatearPrecio(precio) {
@@ -38,9 +38,9 @@ function formatearPrecio(precio) {
     });
 }
 
-// ---------------- FUNCIONES DE AIRTABLE ----------------
+// ---------------- FUNCIONES DE CARGA DE AIRTABLE ----------------
 
-// Obtener productos desde Airtable (solo primera página)
+// Obtener productos desde Airtable
 async function obtenerProductosDesdeAirtable() {
     try {
         console.log('Obteniendo productos desde Airtable...');
@@ -84,7 +84,6 @@ async function obtenerProductosDesdeAirtable() {
     }
 }
 
-// Obtener TODOS los productos (paginación completa)
 async function obtenerTodosLosProductos() {
     try {
         let allRecords = [];
@@ -119,7 +118,7 @@ async function obtenerTodosLosProductos() {
     }
 }
 
-// Mostrar mensaje de error
+// mensaje de error
 function mostrarErrorProductos() {
     const productContainer = document.querySelector('.product-container');
     if (productContainer) {
@@ -133,7 +132,7 @@ function mostrarErrorProductos() {
 
 // ---------------- FUNCIONES DEL DOM ----------------
 
-// Crear las tarjetas de productos
+// Crear las tarjetas
 function crearProductosDesdeArray(productos) {
     const products = document.querySelector('.product-container');
     if (!products) return;
@@ -240,16 +239,16 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ---------------- INICIALIZACIÓN (MODIFICADA) ----------------
+// ---------------- INICIALIZACIÓN ----------------
 
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM cargado, inicializando aplicación (modo paginación)...');
 
     try {
-        // Obtener TODOS los productos con paginación
+        // Obtener TODOS los productos
         const registros = await obtenerTodosLosProductos();
 
-        // Mapear los registros de Airtable al formato de la app
+        
         misProductos = registros.map(record => {
             const fields = record.fields;
 

@@ -583,6 +583,37 @@ footer {
     font-size: 13px;
 }
 
+/* buscador */
+.search-bar {
+  position: relative; /* importante para posicionar la lista dentro del form */
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%; /* coloca la lista justo debajo del input */
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  z-index: 1000;
+  max-height: 200px; /* evita que sea muy alta */
+  overflow-y: auto;
+}
+
+.search-suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+
 /* responsive */
 @media (max-width: 768px) {
     .search-bar {

@@ -12,7 +12,7 @@ let misProductos = [];
 
 // ---------------- FUNCIONES----------------
 
-// Formatear precios
+// Formatear productos
 function formatearPrecio(precio) {
     if (precio === null || precio === undefined || precio === '') return "0";
     
@@ -192,7 +192,7 @@ function filterProducts(text) {
     );
 }
 
-// ---------- SUGERENCIAS DE BÚSQUEDA ----------
+// ---------- SUGERENCIAS DEL SEARCH ----------
 function mostrarSugerencias(texto) {
     let sugerencias = document.querySelector('.search-suggestions');
     if (!sugerencias) {
@@ -246,7 +246,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM cargado, inicializando aplicación (modo paginación)...');
 
     try {
-        // Obtener TODOS los productos
         const registros = await obtenerTodosLosProductos();
 
         
@@ -280,7 +279,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         mostrarErrorProductos();
     }
 
-    // Actualizar contador del carrito si existe
+    // Actualizar contador del carrito
     if (typeof actualizarContadorCarrito === 'function') {
         actualizarContadorCarrito();
     }

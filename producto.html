@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartera de Cuero Elegante - Tienda Artemis</title>
+    <title>Cargando producto... - Tienda Artemis</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <div class="brand">
             <a href="index.html"><img src="images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
@@ -39,66 +40,14 @@
         </nav>
     </header>
 
-    <main class="producto-page">
-        <div class="producto-layout">
-            <section class="producto-galeria">
-                <img src="images/Products/pink-handbags.jpg" alt="Cartera de Cuero Elegante"
-                    class="producto-imagen-principal">
-                <div class="producto-miniaturas">
-                    <img src="images/Products/color-purple-elegance-woman-luxury.jpg" alt="vista 1">
-                    <img src="images/Products/new-color-purse-luxury-handbag.jpg" alt="vista 2">
-                    <img src="images/Products/beautiful-elegance-luxury-fashion-women-bag.jpg" alt="vista 3">
-                </div>
-            </section>
-
-            <section class="producto-detalles">
-                <h2>Cartera de Cuero Elegante para Mujer</h2>
-                <p class="producto-subtitulo">Nueva | 150 vendidos</p>
-                <p class="producto-precio">$151.499</p>
-                <p class="producto-envio">Envío gratis a todo el país</p>
-
-                <div class="producto-opciones">
-                    <label for="color">Color:</label>
-                    <select id="color">
-                        <option>Negro</option>
-                        <option>Marrón</option>
-                        <option>Beige</option>
-                    </select>
-                </div>
-
-                <div class="producto-cantidad">
-                    <label for="cantidad">Cantidad:</label>
-                    <input type="number" id="cantidad" value="1" min="1">
-                </div>
-
-                <button class="btn btn-primary">Comprar ahora</button>
-                <button class="btn btn-danger">Agregar al carrito</button>
-
-                <div class="producto-beneficios">
-                    <p>💳 Hasta 6 cuotas sin interés con tarjeta de crédito.</p>
-                    <p>📦 Devolución gratis en los primeros 30 días.</p>
-                </div>
-            </section>
+    <!-- Contenido principal que se rellenará con JS -->
+    <main class="producto-page" id="main-producto-container">
+        <div class="producto-layout-loading">
+            <p>Cargando producto...</p>
         </div>
-
-        <section class="producto-descripcion">
-            <h3>Descripción</h3>
-            <p>
-                Esta cartera de cuero elegante está diseñada para mujeres que buscan sofisticación y practicidad.
-                Confeccionada con cuero genuino de alta calidad, cuenta con múltiples compartimentos internos,
-                cierre metálico reforzado y correa ajustable. Ideal tanto para el día a día como para ocasiones
-                especiales.
-            </p>
-            <ul>
-                <li>Material: Cuero genuino</li>
-                <li>Dimensiones: 28 cm x 18 cm x 12 cm</li>
-                <li>Incluye correa ajustable</li>
-                <li>Garantía: 12 meses</li>
-            </ul>
-        </section>
     </main>
 
-
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-info">
@@ -119,6 +68,11 @@
             <p>&copy; 2025 Tienda Artemis - Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="app.js"></script> 
+    <script src="producto.js"></script>
 </body>
-<script src="producto.js"></script>
+
 </html>

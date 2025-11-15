@@ -1,73 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Tienda Artemis</title>
-
+    
     <link rel="stylesheet" href="styles.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.png">
 </head>
 
 <body class="admin-page">
 
-    <h1>Panel de Administración</h1>
-
-    <div class="admin-container">
-
-        <section class="admin-form">
-            <h2>Formulario de Producto</h2>
-            <form id="form-producto">
-                <input type="hidden" id="record_id">
-
-                <div>
-                    <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" name="titulo" required>
-                </div>
-                <div>
-                    <label for="precio">Precio:</label>
-                    <input type="number" id="precio" name="precio" step="0.01" required>
-                </div>
-                <div>
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" rows="4"></textarea>
-                </div>
-                <div>
-                    <label for="caracteristicas">Características:</label>
-                    <textarea id="caracteristicas" name="caracteristicas" rows="4"></textarea>
-                </div>
-                <div>
-                    <label for="imagen">URL de la Imagen:</label>
-                    <input type="text" id="imagen" name="imagen">
-                </div>
-
-                <button typebutton="submit" id="btn-guardar" class="btn btn-guardar">Agregar Producto</button>
-                <button type="button" id="btn-nuevo" class="btn btn-nuevo">Limpiar Formulario</button>
+    <header>
+        <div class="brand">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
+            <a href="index.html">
+                <h1>Artemis</h1>
+            </a>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav>
+            <form class="search-bar">
+                <input type="text" placeholder="Buscar productos" aria-label="Buscar">
+                <button type="submit">🔍</button>
             </form>
-        </section>
+            <ul class="nav-categories">
+                <li><a href="#">Carteras</a></li>
+                <li><a href="#">Ropa</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="cuenta.html">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="carrito.html">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
+                        (0)</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <section class="admin-table-container">
-            <h2>Productos Existentes</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Precio</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="tabla-productos">
-                    <tr>
-                        <td colspan="3" style="text-align: center;">Cargando productos...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <!-- Contenido principal -->
+    <main>
+        <h1>Panel de Administración</h1>
+        <div class="admin-container">
+            <!-- Columna 1: Formulario -->
+            <section class="admin-form">
+                <h2>Formulario de Producto</h2>
+                <form id="form-producto">
+                    <input type="hidden" id="record_id">
 
-    </div>
+                    <div>
+                        <label for="titulo">Título:</label>
+                        <input type="text" id="titulo" name="titulo" required>
+                    </div>
+                    <div>
+                        <label for="precio">Precio:</label>
+                        <input type="number" id="precio" name="precio" step="0.01" required>
+                    </div>
+                    <div>
+                        <label for="stock">Stock:</label>
+                        <input type="number" id="stock" name="stock" step="1" min="0" value="0">
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción:</label>
+                        <textarea id="descripcion" name="descripcion" rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label for="caracteristicas">Características (separar por comas o saltos de línea):</label>
+                        <textarea id="caracteristicas" name="caracteristicas" rows="4"></textarea>
+                    </div>
+                    <div>
+                        <label for="imagen">URL de la Imagen:</label>
+                        <input type="text" id="imagen" name="imagen">
+                    </div>
 
+                    <button type="submit" id="btn-guardar" class="btn btn-guardar">Agregar Producto</button>
+                    <button type="button" id="btn-nuevo" class="btn btn-nuevo">Limpiar Formulario</button>
+                </form>
+            </section>
+
+            <!-- Columna 2: Tabla de Productos -->
+            <section class="admin-table-container">
+                <h2>Productos Existentes</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-productos">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">Cargando productos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Tienda Artemis</h3>
+                <p><img src="images/icons/location.png" alt="Ubicación"> Plata 952, Santiago del Estero, Argentina</p>
+                <p><img src="images/icons/phone.png" alt="Telefono"> +54 3856165624</p>
+                <p><img src="images/icons/envelope.png" alt="Email"> ricardo.reinieri@gmail.com</p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Seguinos</h4>
+                <a href="#"><img src="images/icons/facebook.png" alt="Facebook">Facebook</a>
+                <a href="#"><img src="images/icons/instagram.png" alt="Instagram">Instagram</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tienda Artemis - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
     <script src="config.js"></script>
+    <script src="app.js"></script>
     <script src="admin.js"></script>
 </body>
+
 </html>

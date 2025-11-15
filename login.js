@@ -41,7 +41,7 @@ function handleLogin(e, errorElement) {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('isAdmin', 'true');
         
-        alert('¡Bienvenido, Administrador!');
+        
         window.location.href = 'admin.html';
         return;
     }
@@ -49,8 +49,8 @@ function handleLogin(e, errorElement) {
     if (email === REGULAR_USER.email && password === REGULAR_USER.password) {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('isAdmin', 'false');
-
-        alert('¡Inicio de sesión exitoso!');
+        
+        
         window.location.href = 'index.html';
         return;
     }

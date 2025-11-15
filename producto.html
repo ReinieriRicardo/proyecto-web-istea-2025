@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <!-- Header -->
     <header>
         <div class="brand">
             <a href="index.html"><img src="images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
@@ -29,25 +28,25 @@
                 <input type="text" placeholder="Buscar productos" aria-label="Buscar">
                 <button type="submit">🔍</button>
             </form>
+            
             <ul class="nav-categories">
-                <li><a href="#">Carteras</a></li>
-                <li><a href="#">Ropa</a></li>
-                <li><a href="#">Accesorios</a></li>
-                <li><a href="cuenta.html">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
-                <li><a href="carrito.html">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
+                <li><a href="index.html" class="nav-link-todos">Todos</a></li>
+                <li><a href="index.html?categoria=1" class="nav-link-categoria" data-categoria="1">Carteras</a></li>
+                <li><a href="index.html?categoria=2" class="nav-link-categoria" data-categoria="2">Ropa</a></li>
+                <li><a href="index.html?categoria=3" class="nav-link-categoria" data-categoria="3">Accesorios</a></li>
+                <li><a href="cuenta.html" class="nav-link-cuenta">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="carrito.html" class="nav-link-carrito">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
                         (0)</a></li>
             </ul>
-        </nav>
+            </nav>
     </header>
 
-    <!-- Contenido principal que se rellenará con JS -->
     <main class="producto-page" id="main-producto-container">
         <div class="producto-layout-loading">
             <p>Cargando producto...</p>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-info">
@@ -69,7 +68,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="config.js"></script>
     <script src="app.js"></script> 
     <script src="producto.js"></script>

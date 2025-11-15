@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <!-- Header -->
     <header>
         <div class="brand">
             <a href="index.html"><img src="images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
@@ -30,65 +29,35 @@
                 <input type="text" placeholder="Buscar productos" aria-label="Buscar">
                 <button type="submit">🔍</button>
             </form>
+            
             <ul class="nav-categories">
-                <li><a href="#">Carteras</a></li>
-                <li><a href="#">Ropa</a></li>
-                <li><a href="#">Accesorios</a></li>
-                <li><a href="cuenta.html">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
-                <li><a href="carrito.html">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
+                <li><a href="index.html" class="nav-link-todos">Todos</a></li>
+                <li><a href="index.html?categoria=1" class="nav-link-categoria" data-categoria="1">Carteras</a></li>
+                <li><a href="index.html?categoria=2" class="nav-link-categoria" data-categoria="2">Ropa</a></li>
+                <li><a href="index.html?categoria=3" class="nav-link-categoria" data-categoria="3">Accesorios</a></li>
+                <li><a href="cuenta.html" class="nav-link-cuenta">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="carrito.html" class="nav-link-carrito">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
                         (0)</a></li>
             </ul>
-        </nav>
+            </nav>
     </header>
 
-    <!-- Carrito -->
     <main class="cart-page">
-        <!-- Encabezado -->
         <div class="cart-header">
-            <h2>Carrito (2 productos)</h2>
-            <a href="productos.html" class="seguir-comprando">Seguir comprando</a>
+            <h2>Carrito (0 productos)</h2> 
+            <a href="index.html" class="seguir-comprando">Seguir comprando</a>
         </div>
 
         <div class="cart-layout">
-            <!-- Lista de productos -->
+            
             <section class="cart-items">
-                <div class="cart-item">
-                    <img src="images/Products/pink-handbags.jpg" alt="Producto" class="cart-thumb">
-                    <div class="cart-info">
-                        <h3>Cartera de Cuero Elegante</h3>
-                        <p class="unit-price">$151.499</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <input type="number" value="1" min="1">
-                            <button>+</button>
-                        </div>
-                        <p class="subtotal">Subtotal: $151.499</p>
-                        <button class="btn btn-danger">Eliminar</button>
-                    </div>
-                </div>
+                </section>
 
-                <div class="cart-item">
-                    <img src="images/Products/pink-handbags.jpg" alt="Producto" class="cart-thumb">
-                    <div class="cart-info">
-                        <h3>Cartera Casual de Tela</h3>
-                        <p class="unit-price">$120.000</p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <input type="number" value="1" min="1">
-                            <button>+</button>
-                        </div>
-                        <p class="subtotal">Subtotal: $120.000</p>
-                        <button class="btn btn-danger">Eliminar</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Resumen -->
             <aside class="cart-summary">
                 <h3>Resumen de compra</h3>
-                <p>Subtotal: <strong>$271.499</strong></p>
+                <p>Subtotal: <strong>$0</strong></p>
                 <p>Envío: <span style="color:green">Gratis</span></p>
-                <p>Total: <strong>$271.499</strong></p>
+                <p>Total: <strong>$0</strong></p>
                 <button class="btn btn-primary">Finalizar compra</button>
 
                 <div class="cart-benefits">
@@ -101,24 +70,15 @@
 
     <footer>
         <div class="footer-content">
-            <div class="footer-info">
-                <h3>Tienda Artemis</h3>
-                <p><img src="images/icons/location.png" alt="Ubicación"> Plata 952, Santiago del Estero, Argentina</p>
-                <p><img src="images/icons/phone.png" alt="Telefono"> +54 3856165624</p>
-                <p><img src="images/icons/envelope.png" alt="Email"> ricardo.reinieri@gmail.com</p>
             </div>
-
-            <div class="footer-social">
-                <h4>Seguinos</h4>
-                <a href="#"><img src="images/icons/facebook.png" alt="Facebook">Facebook</a>
-                <a href="#"><img src="images/icons/instagram.png" alt="Instagram">Instagram</a>
-            </div>
-        </div>
 
         <div class="footer-bottom">
             <p>&copy; 2025 Tienda Artemis - Todos los derechos reservados</p>
         </div>
     </footer>
+    
+    <script src="config.js"></script>
+    <script src="app.js"></script>
     <script src="carrito.js"></script>
 </body>
 

@@ -27,7 +27,7 @@ const tablaProductos = document.getElementById('tabla-productos');
 document.addEventListener('DOMContentLoaded', () => {
     if (form) {
         if (sessionStorage.getItem('isAdmin') !== 'true') {
-            alert('Acceso denegado.');
+            
             window.location.href = 'index.html';
             return;
         }
@@ -84,7 +84,7 @@ function renderizarTabla(records) {
     });
 }
 
-// -----------------Crear o Actualizar)------------------------------
+// -----------------Crear o Actualizar------------------------------
 function popularFormulario(record) {
     record_id_input.value = record.id;
     const fields = record.fields;
@@ -137,21 +137,18 @@ async function guardarProducto(e) {
             throw new Error(`Error ${response.status}: ${errorData.error.message}`);
         }
 
-        alert(esActualizacion ? '¡Producto actualizado con éxito!' : '¡Producto agregado con éxito!');
+        
         limpiarFormulario();
         cargarProductosAdmin();
 
     } catch (error) {
         console.error('Error al guardar el producto:', error);
-        alert(`Error al guardar: ${error.message}`);
     }
 }
 
 // ------------eliminar producto-------------------------------
 async function eliminarProducto(id) {
-    if (!confirm('¿Estás seguro de que querés eliminar este producto?')) {
-        return;
-    }
+    
 
     const url = `${ADMIN_AIRTABLE_URL}/${id}`;
 
@@ -159,11 +156,10 @@ async function eliminarProducto(id) {
         const response = await fetch(url, { method: 'DELETE', headers: adminHeaders });
         if (!response.ok) throw new Error('No se pudo eliminar el registro.');
 
-        alert('¡Producto eliminado con éxito!');
+        
         cargarProductosAdmin();
 
     } catch (error) {
         console.error('Error al eliminar:', error);
-        alert('Error al eliminar el producto.');
     }
 }

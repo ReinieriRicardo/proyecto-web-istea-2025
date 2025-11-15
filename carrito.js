@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarItemsDelCarrito();
     actualizarResumenDeCompra();
     
-  
-    actualizarContadorHeader();
+    // Esta función ahora existirá porque cargamos app.js
+    actualizarContadorHeader(); 
 });
 
 function agruparItemsDelCarrito() {
+    // Esta función ahora existirá
     const carritoCrudo = obtenerCarritoGlobal(); 
     if (carritoCrudo.length === 0) return;
 
@@ -27,11 +28,13 @@ function agruparItemsDelCarrito() {
         return acc;
     }, {});
 
+    // Esta función ahora existirá
     guardarCarritoGlobal(Object.values(carritoAgrupado)); 
 }
 
 function renderizarItemsDelCarrito() {
     const contenedor = document.querySelector('.cart-items');
+    // Esta función ahora existirá
     const carrito = obtenerCarritoGlobal(); 
 
     if (!contenedor) return;
@@ -42,10 +45,14 @@ function renderizarItemsDelCarrito() {
         actualizarTituloCarrito(0);
         return;
     }
+    
+    let totalItems = 0; // Calculamos el total de items para el título
 
     carrito.forEach(item => {
+        // Esta función (parsePrecio) ahora existirá desde app.js
         const precioUnitario = parsePrecio(item.precio); 
         const subtotalItem = precioUnitario * item.cantidad;
+        totalItems += item.cantidad;
 
         const itemHTML = `
             <div class="cart-item">
@@ -53,13 +60,13 @@ function renderizarItemsDelCarrito() {
                 <div class="cart-info">
                     <h3>${item.titulo}</h3>
                     <p>Color: ${item.color || 'Único'}</p>
-                    <p class="unit-price">$${formatPrecio(precioUnitario)}</p>
+                    <p class="unit-price">$${formatearPrecio(precioUnitario)}</p>
                     <div class="quantity">
                         <button class="btn-restar" data-titulo="${item.titulo}" data-color="${item.color || 'unico'}">-</button>
                         <input type="number" value="${item.cantidad}" min="1" readonly>
                         <button class="btn-sumar" data-titulo="${item.titulo}" data-color="${item.color || 'unico'}">+</button>
                     </div>
-                    <p class="subtotal">Subtotal: $${formatPrecio(subtotalItem)}</p>
+                    <p class="subtotal">Subtotal: $${formatearPrecio(subtotalItem)}</p>
                     <button class="btn btn-danger btn-eliminar" data-titulo="${item.titulo}" data-color="${item.color || 'unico'}">Eliminar</button>
                 </div>
             </div>
@@ -67,6 +74,7 @@ function renderizarItemsDelCarrito() {
         contenedor.innerHTML += itemHTML;
     });
 
+    actualizarTituloCarrito(totalItems); // Actualiza el h2
     agregarEventListeners();
 }
 
@@ -96,7 +104,7 @@ function agregarEventListeners() {
 // -----------actualizar, eliminar-------------------------------
 
 function actualizarCantidad(titulo, color, cambio) {
-    const carrito = obtenerCarritoGlobal(); // Usa global
+    const carrito = obtenerCarritoGlobal(); 
     const itemIndex = carrito.findIndex(item => item.titulo === titulo && (item.color || 'unico') === color);
 
     if (itemIndex === -1) return;
@@ -110,7 +118,7 @@ function actualizarCantidad(titulo, color, cambio) {
         
         renderizarItemsDelCarrito();
         actualizarResumenDeCompra();
-        actualizarContadorHeader(); 
+        // actualizarContadorHeader(); // No hace falta, guardarCarritoGlobal ya lo hace
     }
 }
 
@@ -122,7 +130,8 @@ function eliminarItem(titulo, color) {
     
     renderizarItemsDelCarrito();
     actualizarResumenDeCompra();
-    actualizarContadorHeader(); 
+    // actualizarContadorHeader(); // No hace falta, guardarCarritoGlobal ya lo hace
+}
 
 // -----------------resumen y header---------------------------
 
@@ -132,6 +141,7 @@ function actualizarResumenDeCompra() {
     if (!resumen) return;
 
     const subtotal = carrito.reduce((acc, item) => {
+        // Esta función (parsePrecio) ahora existirá
         const precio = parsePrecio(item.precio); 
         return acc + (precio * item.cantidad);
     }, 0);
@@ -139,9 +149,10 @@ function actualizarResumenDeCompra() {
     const envio = 0;
     const total = subtotal + envio;
 
-    resumen.querySelector('p:nth-of-type(1) strong').textContent = `$${formatPrecio(subtotal)}`; // Corregido
-    resumen.querySelector('p:nth-of-type(2) span').textContent = (envio === 0) ? "Gratis" : `$${formatPrecio(envio)}`;
-    resumen.querySelector('p:nth-of-type(3) strong').textContent = `$${formatPrecio(total)}`;
+    // ▼ CORREGIDO: formatearPrecio ▼
+    resumen.querySelector('p:nth-of-type(1) strong').textContent = `$${formatearPrecio(subtotal)}`;
+    resumen.querySelector('p:nth-of-type(2) span').textContent = (envio === 0) ? "Gratis" : `$${formatearPrecio(envio)}`;
+    resumen.querySelector('p:nth-of-type(3) strong').textContent = `$${formatearPrecio(total)}`;
 }
 
 

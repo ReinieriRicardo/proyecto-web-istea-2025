@@ -1,5 +1,4 @@
 // ---------------- CONFIGURACIÓN DE AIRTABLE ----------------
-// app.js (parte superior)
 const AIRTABLE_TOKEN = AIRTABLE_CONFIG.TOKEN;
 const AIRTABLE_BASE_ID = AIRTABLE_CONFIG.BASE_ID;
 const AIRTABLE_TABLE_NAME = AIRTABLE_CONFIG.TABLE_NAME;
@@ -11,6 +10,15 @@ const AIRTABLE_URL = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE
 let misProductos = [];
 
 // ---------------- FUNCIONES----------------
+
+function parsePrecio(precioString) {
+    if (typeof precioString === 'number') return precioString;
+    if (!precioString) return 0;
+ 
+    const numeroLimpio = String(precioString).replace(/\./g, '').replace(',', '.');
+    
+    return parseFloat(numeroLimpio) || 0;
+}
 
 // Formatear precios
 function formatearPrecio(precio) {
@@ -300,18 +308,18 @@ document.addEventListener('DOMContentLoaded', async function() {
             const imagen = fields.imagen || fields.Imagen || fields.image || fields.Image || fields.foto || "images/Products/default-product.jpg";
             const precio = fields.precio || fields.Precio || fields.price || fields.Price || "0";
             const stock = fields.stock || fields.Stock || 0;
-            const categoria = fields.categoria || fields.Categoria || 0; // Añadido
+            const categoria = fields.categorias || fields.categoria || fields.Categoria || 0; 
 
             return {
                 id: record.id,
                 imagen: imagen,
                 precio: precio,
-                precioFormateado: formatearPrecio(precio),
+                precioFormateado: formatearPrecio(precio), // Usa la función de formateo
                 titulo: titulo,
                 descripcion: descripcion,
                 caracteristicas: caracteristicas,
                 stock: stock,
-                categoria: categoria, // Añadido
+                categoria: categoria, 
                 envio: "Envío a toda la capital"
             };
         });

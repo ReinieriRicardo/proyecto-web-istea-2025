@@ -127,7 +127,7 @@ function agregarListenersBotones() {
             inputCantidad.value = 1;
         }
         if (cantidad > stockDisponible) {
-            alert(`Solo quedan ${stockDisponible} unidades disponibles.`);
+            
             inputCantidad.value = stockDisponible;
         }
     });
@@ -135,7 +135,7 @@ function agregarListenersBotones() {
     btnAgregar.addEventListener('click', () => {
         const cantidad = parseInt(inputCantidad.value);
         if (cantidad > stockDisponible) {
-            alert(`Solo quedan ${stockDisponible} unidades disponibles.`);
+            
             return;
         }
         
@@ -148,14 +148,12 @@ function agregarListenersBotones() {
         };
         
         agregarAlCarrito(productoParaCarrito);
-        alert('¡Producto agregado al carrito!');
     });
 
     btnComprar.addEventListener('click', () => {
         const cantidad = parseInt(inputCantidad.value);
         if (cantidad > stockDisponible) {
-            alert(`Solo quedan ${stockDisponible} unidades disponibles.`);
-            return;
+            
         }
 
         const productoParaCarrito = {

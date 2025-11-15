@@ -1,3 +1,4 @@
+// -------------------AIRTABLE-------------------------
 const ADMIN_AIRTABLE_TOKEN = AIRTABLE_CONFIG.TOKEN;
 const ADMIN_AIRTABLE_BASE_ID = AIRTABLE_CONFIG.BASE_ID;
 const ADMIN_AIRTABLE_TABLE_NAME = AIRTABLE_CONFIG.TABLE_NAME;
@@ -8,12 +9,13 @@ const adminHeaders = {
     'Content-Type': 'application/json'
 };
 
-// ------------------DOM------------------------------
+// ---------- referencias de DOM ---------------------------
 const form = document.getElementById('form-producto');
 const record_id_input = document.getElementById('record_id');
 const titulo_input = document.getElementById('titulo');
 const precio_input = document.getElementById('precio');
 const stock_input = document.getElementById('stock');
+const categoria_input = document.getElementById('categoria');
 const descripcion_input = document.getElementById('descripcion');
 const caracteristicas_input = document.getElementById('caracteristicas');
 const imagen_input = document.getElementById('imagen');
@@ -21,9 +23,14 @@ const btnGuardar = document.getElementById('btn-guardar');
 const btnNuevo = document.getElementById('btn-nuevo');
 const tablaProductos = document.getElementById('tabla-productos');
 
-// ------------------EVENTOS------------------------------
+// ----------------Inicializacion--------------------------
 document.addEventListener('DOMContentLoaded', () => {
     if (form) {
+        if (sessionStorage.getItem('isAdmin') !== 'true') {
+            alert('Acceso denegado.');
+            window.location.href = 'index.html';
+            return;
+        }
         cargarProductosAdmin();
         
         form.addEventListener('submit', guardarProducto);
@@ -31,9 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// ----------------------- Leer y mostrar productos------------------------------
+// ------------Leer y mostrar productos-------------------------------
 async function cargarProductosAdmin() {
     if (!tablaProductos) return;
+    tablaProductos.innerHTML = `<tr><td colspan="5" style="text-align: center;">Cargando productos...</td></tr>`;
 
     try {
         const response = await fetch(ADMIN_AIRTABLE_URL, { headers: adminHeaders });
@@ -43,14 +51,14 @@ async function cargarProductosAdmin() {
         renderizarTabla(data.records);
     } catch (error) {
         console.error('Error al cargar productos (Admin):', error);
-        tablaProductos.innerHTML = `<tr><td colspan="4">Error al cargar productos</td></tr>`;
+        tablaProductos.innerHTML = `<tr><td colspan="5">Error al cargar productos</td></tr>`;
     }
 }
 
 function renderizarTabla(records) {
     tablaProductos.innerHTML = '';
     if (records.length === 0) {
-        tablaProductos.innerHTML = `<tr><td colspan="4">No hay productos</td></tr>`;
+        tablaProductos.innerHTML = `<tr><td colspan="5">No hay productos</td></tr>`;
         return;
     }
 
@@ -62,6 +70,7 @@ function renderizarTabla(records) {
             <td>${fields.titulo || 'Sin título'}</td>
             <td>$${fields.precio || 0}</td>
             <td>${fields.stock || 0}</td>
+            <td>${fields.categoria || 0}</td>
             <td>
                 <button class="btn-admin btn-edit" data-id="${record.id}">Editar</button>
                 <button class="btn-admin btn-delete" data-id="${record.id}">Eliminar</button>
@@ -75,7 +84,7 @@ function renderizarTabla(records) {
     });
 }
 
-// -------------------Crear o Actualizar-----------------------
+// -----------------Crear o Actualizar)------------------------------
 function popularFormulario(record) {
     record_id_input.value = record.id;
     const fields = record.fields;
@@ -83,6 +92,7 @@ function popularFormulario(record) {
     titulo_input.value = fields.titulo || '';
     precio_input.value = fields.precio || 0;
     stock_input.value = fields.stock || 0;
+    categoria_input.value = fields.categoria || 0;
     descripcion_input.value = fields.descripcion || '';
     caracteristicas_input.value = fields.caracteristicas || '';
     imagen_input.value = fields.imagen || '';
@@ -95,6 +105,7 @@ function limpiarFormulario() {
     form.reset();
     record_id_input.value = '';
     stock_input.value = 0;
+    categoria_input.value = 0;
     btnGuardar.textContent = 'Agregar Producto';
 }
 
@@ -111,6 +122,7 @@ async function guardarProducto(e) {
         "titulo": titulo_input.value,
         "precio": parseFloat(precio_input.value) || 0,
         "stock": parseInt(stock_input.value) || 0,
+        "categoria": parseInt(categoria_input.value) || 0,
         "descripcion": descripcion_input.value,
         "caracteristicas": caracteristicas_input.value,
         "imagen": imagen_input.value
@@ -135,7 +147,7 @@ async function guardarProducto(e) {
     }
 }
 
-// -------------------Eliminar-----------------------
+// ------------eliminar producto-------------------------------
 async function eliminarProducto(id) {
     if (!confirm('¿Estás seguro de que querés eliminar este producto?')) {
         return;

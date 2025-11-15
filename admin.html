@@ -15,7 +15,8 @@
 </head>
 
 <body class="admin-page">
-
+    
+    <!-- Header -->
     <header>
         <div class="brand">
             <a href="index.html"><img src="images/logo.png" alt="Logo Tienda Artemis" class="logo"></a>
@@ -31,17 +32,19 @@
                 <button type="submit">🔍</button>
             </form>
             <ul class="nav-categories">
-                <li><a href="#">Carteras</a></li>
-                <li><a href="#">Ropa</a></li>
-                <li><a href="#">Accesorios</a></li>
-                <li><a href="cuenta.html">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
-                <li><a href="carrito.html">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
+                <!-- Links de Categoría Actualizados -->
+                <li><a href="index.html" class="nav-link-todos">Todos</a></li>
+                <li><a href="index.html?categoria=1" class="nav-link-categoria" data-categoria="1">Carteras</a></li>
+                <li><a href="index.html?categoria=2" class="nav-link-categoria" data-categoria="2">Ropa</a></li>
+                <li><a href="index.html?categoria=3" class="nav-link-categoria" data-categoria="3">Accesorios</a></li>
+                <li><a href="cuenta.html" class="nav-link-cuenta">Cuenta <img src="images/icons/user.png" alt="icono usuario"></a></li>
+                <li><a href="carrito.html" class="nav-link-carrito">Carrito <img src="images/icons/shopping-bag.png" alt="icono carrito">
                         (0)</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal de Admin -->
     <main>
         <h1>Panel de Administración</h1>
         <div class="admin-container">
@@ -64,6 +67,15 @@
                         <input type="number" id="stock" name="stock" step="1" min="0" value="0">
                     </div>
                     <div>
+                        <label for="categoria">Categoría:</label>
+                        <select id="categoria" name="categoria">
+                            <option value="0">Sin categoría</option>
+                            <option value="1">1 - Carteras</option>
+                            <option value="2">2 - Ropa</option>
+                            <option value="3">3 - Accesorios</option>
+                        </select>
+                    </div>
+                    <div>
                         <label for="descripcion">Descripción:</label>
                         <textarea id="descripcion" name="descripcion" rows="4"></textarea>
                     </div>
@@ -81,7 +93,7 @@
                 </form>
             </section>
 
-            <!-- Columna 2: Tabla de Productos -->
+            <!-- Tabla de Productos -->
             <section class="admin-table-container">
                 <h2>Productos Existentes</h2>
                 <table>
@@ -90,12 +102,13 @@
                             <th>Título</th>
                             <th>Precio</th>
                             <th>Stock</th>
+                            <th>Categoría</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tabla-productos">
                         <tr>
-                            <td colspan="4" style="text-align: center;">Cargando productos...</td>
+                            <td colspan="5" style="text-align: center;">Cargando productos...</td>
                         </tr>
                     </tbody>
                 </table>

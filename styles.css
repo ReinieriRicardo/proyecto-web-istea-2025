@@ -132,6 +132,27 @@ nav {
     width: 18px;
     height: auto;
 }
+/* Estilo para el link de categoría activo */
+.nav-categories li a.active {
+    color: var(--color-resalte);
+    text-shadow: 0 0 5px var(--color-resalte);
+}
+
+
+/* Botón Admin en Nav */
+.btn-admin-nav {
+    background-color: var(--color-resalte);
+    color: var(--color-secundario) !important;
+    font-weight: bold;
+    padding: 8px 12px !important;
+    border-radius: 6px;
+}
+.btn-admin-nav:hover {
+    background-color: var(--color-principal);
+    color: var(--color-secundario) !important;
+    transform: translateY(0);
+}
+
 
 /* Hamburguesa */
 .menu-toggle {
@@ -193,6 +214,14 @@ nav {
     padding: 40px 5%;
     background-color: var(--color-fondo);
     padding-bottom: 100px;
+    min-height: 300px; /* Altura mínima */
+}
+.no-products {
+    grid-column: 1 / -1; /* Abarcar todas las columnas */
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--color-secundario);
+    padding: 40px;
 }
 .product-card {
     background: var(--color-cards);
@@ -260,11 +289,16 @@ nav {
 .btn-danger:hover {
     background: darkred;
 }
+.btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
 
 /* carrito */
 .cart-page {
     padding: 30px 5%;
     background: var(--color-fondo);
+    min-height: 60vh;
 }
 
 .cart-header {
@@ -352,15 +386,20 @@ nav {
     color: #444;
 }
 
-/* estilo de la pagina productos*/
+/* ---------------------------------- */
+/* --- ESTILOS PÁGINA DE PRODUCTO --- */
+/* ---------------------------------- */
 .producto-page {
     padding: 40px 5%;
     background: var(--color-fondo);
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 60vh;
 }
 
 .producto-layout {
     display: grid;
-    grid-template-columns: 2fr 1.2fr;
+    grid-template-columns: 1fr 1fr; /* 1:1 ratio */
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -374,6 +413,8 @@ nav {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 1 / 1; /* Imagen cuadrada */
+    object-fit: cover;
 }
 .producto-miniaturas {
     display: flex;
@@ -392,14 +433,16 @@ nav {
 }
 
 .producto-detalles {
-    background-color: var(--color-cards);
-    padding: 20px;
+    background-color: transparent; /* Sin fondo */
+    padding: 0;
     border-radius: 12px;
 }
 
 .producto-detalles h2 {
-    font-size: 26px;
+    font-size: 28px; /* Más grande */
+    font-weight: 700;
     margin-bottom: 8px;
+    color: var(--color-secundario);
 }
 .producto-subtitulo {
     font-size: 14px;
@@ -407,15 +450,20 @@ nav {
     margin-bottom: 16px;
 }
 .producto-precio {
-    font-size: 28px;
+    font-size: 32px; /* Más grande */
     font-weight: bold;
-    color: var(--color-secundario);
+    color: #333;
     margin-bottom: 8px;
 }
 .producto-envio {
     color: green;
     font-weight: 600;
     margin-bottom: 20px;
+}
+.producto-stock {
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 16px;
 }
 
 .producto-opciones,
@@ -430,11 +478,20 @@ nav {
 }
 .producto-opciones select,
 .producto-cantidad input {
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 1rem;
-    width: 100px;
+    width: 120px;
+}
+.producto-cantidad input {
+    width: 80px;
+    text-align: center;
+}
+
+.producto-detalles .btn {
+    width: 100%; /* Botones anchos */
+    margin-bottom: 8px;
 }
 
 .producto-beneficios {
@@ -447,25 +504,31 @@ nav {
 }
 
 .producto-descripcion {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.producto-descripcion {
     background-color: var(--color-cards);
+    padding: 24px;
+    border-radius: 12px;
 }
 
 .producto-descripcion h3 {
     margin-bottom: 12px;
     color: var(--color-secundario);
+    font-size: 20px;
 }
 .producto-descripcion ul {
     margin-top: 12px;
     padding-left: 20px;
     list-style: disc;
 }
+.producto-descripcion li {
+    margin-bottom: 8px;
+}
+.producto-layout-loading, .producto-error {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 50px;
+    color: var(--color-secundario);
+}
+
 
 /*estilos para el login*/
 
@@ -607,6 +670,7 @@ footer {
 .search-suggestions li {
   padding: 8px;
   cursor: pointer;
+  color: #333; /* Color de texto para sugerencias */
 }
 
 .search-suggestions li:hover {
@@ -656,6 +720,13 @@ footer {
         padding: 14px 18px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
+    /* Arreglo para botón admin en móvil */
+    .btn-admin-nav {
+        display: inline-block;
+        margin: 10px 18px;
+        width: auto;
+    }
+
     .row {
         flex-direction: column;
         text-align: center;
@@ -745,7 +816,7 @@ footer {
 /* --- ESTILOS PARA ADMIN.HTML --- */
 /* ---------------------------------- */
 
-.admin-page {
+.admin-page main { /* Aplicar padding al main, no al body */
     padding: 20px;
     background-color: var(--color-fondo);
     min-height: 80vh;
@@ -793,7 +864,9 @@ footer {
 
 .admin-form input[type="text"],
 .admin-form input[type="number"],
-.admin-form textarea {
+.admin-form input[type="search"],
+.admin-form textarea,
+.admin-form select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -824,11 +897,17 @@ footer {
     color: white;
     padding: 10px 15px;
     margin-right: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 .btn-nuevo {
     background-color: var(--color-resalte);
     color: white;
     padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 }
 .btn-edit {
     background-color: #4CAF50;

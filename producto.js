@@ -19,12 +19,12 @@ function cargarProducto(id) {
     const productosGuardados = sessionStorage.getItem('todosLosProductos');
     
     if (!productosGuardados) {
-        mostrarError("No se pudieron cargar los productos. Vuelve a la página de inicio.");
+        // Intentar recargar desde la página de inicio si falla
+        mostrarError("Error al cargar datos. <a href='index.html'>Volver al inicio</a>");
         return;
     }
 
     const todosProductos = JSON.parse(productosGuardados);
-    
     productoActual = todosProductos.find(p => p.id === id);
 
     if (!productoActual) {
@@ -33,7 +33,6 @@ function cargarProducto(id) {
     }
 
     stockDisponible = productoActual.stock || 0;
-
     renderizarProducto(productoActual);
 }
 
@@ -46,7 +45,6 @@ function mostrarError(mensaje) {
 
 function renderizarProducto(producto) {
     document.title = `${producto.titulo} - Tienda Artemis`;
-
     const mainContainer = document.getElementById('main-producto-container');
 
     let listaCaracteristicas = '';
@@ -59,21 +57,13 @@ function renderizarProducto(producto) {
 
     const htmlProducto = `
         <div class="producto-layout">
-            <!-- Galería -->
             <section class="producto-galeria">
                 <img src="${producto.imagen}" alt="${producto.titulo}" class="producto-imagen-principal">
-                <!--
-                <div class="producto-miniaturas">
-                    <img src="${producto.imagen}" alt="vista 1">
-                </div>
-                -->
             </section>
 
-            <!-- Detalles y Compra -->
             <section class="producto-detalles">
                 <h2>${producto.titulo}</h2>
                 <p class="producto-subtitulo">Nuevo | +150 vendidos (simulado)</p>
-                
                 <p class="producto-precio">$${producto.precioFormateado}</p>
                 <p class="producto-envio">${producto.envio}</p>
 
@@ -109,18 +99,15 @@ function renderizarProducto(producto) {
             </section>
         </div>
 
-        <!-- Descripción -->
         <section class="producto-descripcion">
             <h3>Descripción</h3>
             <p>${producto.descripcion || 'Este producto no tiene descripción.'}</p>
-            
             <h3>Características</h3>
             ${listaCaracteristicas}
         </section>
     `;
 
     mainContainer.innerHTML = htmlProducto;
-
     agregarListenersBotones();
 }
 
@@ -131,6 +118,8 @@ function agregarListenersBotones() {
     const btnComprar = document.getElementById('btn-comprar');
     const inputCantidad = document.getElementById('cantidad');
     const selectColor = document.getElementById('color');
+
+    if (!btnAgregar || !btnComprar) return; // Salir si los botones no existen
 
     inputCantidad.addEventListener('input', () => {
         let cantidad = parseInt(inputCantidad.value);
@@ -182,19 +171,9 @@ function agregarListenersBotones() {
     });
 }
 
-function obtenerCarrito() {
-    return JSON.parse(localStorage.getItem('carrito')) || [];
-}
-
-function guardarCarrito(carrito) {
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    if (typeof actualizarContadorHeader === 'function') {
-        actualizarContadorHeader();
-    }
-}
-
 function agregarAlCarrito(producto) {
-    const carrito = obtenerCarrito();
+    // Usar las funciones globales de app.js
+    const carrito = obtenerCarritoGlobal();
     
     const clave = producto.titulo + '_' + producto.color;
     const itemExistenteIndex = carrito.findIndex(item => (item.titulo + '_' + item.color) === clave);
@@ -205,5 +184,5 @@ function agregarAlCarrito(producto) {
         carrito.push(producto);
     }
     
-    guardarCarrito(carrito);
+    guardarCarritoGlobal(carrito);
 }

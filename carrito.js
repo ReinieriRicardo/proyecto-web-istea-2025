@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorHeader();
 });
 
-// ------------LOCALSTORAGE Y PRECIOS)------------
+// ------------LOCALSTORAGE Y PRECIOS------------
 
 function obtenerCarrito() {
     return JSON.parse(localStorage.getItem('carrito')) || [];

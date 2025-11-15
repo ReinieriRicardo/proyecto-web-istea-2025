@@ -40,8 +40,7 @@ function handleLogin(e, errorElement) {
     if (email === ADMIN_USER.email && password === ADMIN_USER.password) {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('isAdmin', 'true');
-        
-        
+       
         window.location.href = 'admin.html';
         return;
     }
@@ -49,7 +48,6 @@ function handleLogin(e, errorElement) {
     if (email === REGULAR_USER.email && password === REGULAR_USER.password) {
         sessionStorage.setItem('isLoggedIn', 'true');
         sessionStorage.setItem('isAdmin', 'false');
-        
         
         window.location.href = 'index.html';
         return;
